@@ -27,7 +27,7 @@ public class YearParser implements Parser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Year.YearBuilder year = new Year.YearBuilder().name(file.getName()).coeff(Integer.parseInt(lines.get(0)));
+        Year.YearBuilder year = new Year.YearBuilder().name(file.getName().substring(0, file.getName().indexOf("."))).coeff(Integer.parseInt(lines.get(0)));
 
         for (int i = 1; i < lines.size(); i++) {
             String line = lines.get(i);
