@@ -3,7 +3,11 @@ package fr.leroideskiwis.parser;
 import fr.leroideskiwis.markable.TotalMark;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
