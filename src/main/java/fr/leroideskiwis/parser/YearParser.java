@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class YearParser implements Parser {
     private final File file;
@@ -16,7 +17,9 @@ public class YearParser implements Parser {
     }
 
     public List<String> getLines(File file) throws IOException {
-        return Files.lines(file.toPath()).collect(Collectors.toList());
+        try(Stream<String> lines = Files.lines(file.toPath())){
+            return lines.collect(Collectors.toList());
+        }
     }
 
     @Override
@@ -27,7 +30,9 @@ public class YearParser implements Parser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Year.YearBuilder year = new Year.YearBuilder().name(file.getName().substring(0, file.getName().indexOf("."))).coeff(Integer.parseInt(lines.get(0)));
+        Year.YearBuilder year = new Year.YearBuilder()
+                .name(file.getName().substring(0, file.getName().indexOf(".")))
+                .coeff(Integer.parseInt(lines.getFirst()));
 
         for (int i = 1; i < lines.size(); i++) {
             String line = lines.get(i);

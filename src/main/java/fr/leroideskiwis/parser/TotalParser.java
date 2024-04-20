@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 public class TotalParser implements Parser{
 
-    private String path;
+    private final String path;
 
     public TotalParser(String path){
         this.path = path;

@@ -7,8 +7,8 @@ import java.util.List;
 
 public class SchoolUnity implements Markable, Displayable {
 
-    private String name;
-    private int coeff;
+    private final String name;
+    private final int coeff;
     private final List<Mark> marks;
 
     public SchoolUnity(String name, int coeff, List<Mark> marks) {
@@ -19,7 +19,7 @@ public class SchoolUnity implements Markable, Displayable {
 
     @Override
     public Mark computeAverage() {
-        return marks.stream().reduce(new Mark(0, 0), (mark1, mark) -> mark1.add(mark)).finalizeMark(coeff);
+        return marks.stream().reduce(new Mark(0, 0), Mark::add).finalizeMark(coeff);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SchoolUnity implements Markable, Displayable {
 
         private String name;
         private int coeff;
-        private List<Mark> marks = new ArrayList<>();
+        private final List<Mark> marks = new ArrayList<>();
 
         public SchoolUnityBuilder name(String name) {
             this.name = name;
