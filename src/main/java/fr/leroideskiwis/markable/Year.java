@@ -30,8 +30,6 @@ public class Year implements Markable, Displayable {
         semesters.forEach(Semester::display);
     }
 
-    }
-
     public static class YearBuilder {
         private String name;
         private List<Semester> semesters = new ArrayList<>();

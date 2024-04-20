@@ -32,13 +32,6 @@ public class Semester implements Markable, Displayable {
         }
     }
 
-    public List<Mark> getAllMarks() {
-        return schoolUnities.stream().map(SchoolUnity::getAllMarks).reduce((marks, marks2) -> {
-            marks.addAll(marks2);
-            return marks;
-        }).orElse(new ArrayList<>());
-    }
-
     public static class SemesterBuilder {
 
         private final List<SchoolUnity> schoolUnities = new ArrayList<>();
