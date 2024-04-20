@@ -1,9 +1,11 @@
 package fr.leroideskiwis.markable;
 
+import fr.leroideskiwis.Displayable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolUnity implements Markable {
+public class SchoolUnity implements Markable, Displayable {
 
     private String name;
     private int coeff;
@@ -18,6 +20,12 @@ public class SchoolUnity implements Markable {
     @Override
     public Mark computeAverage() {
         return marks.stream().reduce(new Mark(0, 0), (mark1, mark) -> mark1.add(mark)).finalizeMark(coeff);
+    }
+
+    @Override
+    public void display() {
+        System.out.printf("\tSchool unity %s (avg: %d/20)\n", name.toUpperCase(), computeAverage().toInt());
+        marks.forEach(Mark::display);
     }
 
     public static class SchoolUnityBuilder {

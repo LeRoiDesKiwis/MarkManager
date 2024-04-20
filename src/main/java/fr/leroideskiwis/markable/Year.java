@@ -1,9 +1,10 @@
 package fr.leroideskiwis.markable;
 
+import fr.leroideskiwis.Displayable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Year implements Markable {
+public class Year implements Markable, Displayable {
 
     private final List<SchoolUnity> schoolUnities = new ArrayList<>();
     private final int coeff;
@@ -19,6 +20,15 @@ public class Year implements Markable {
         return schoolUnities.stream()
                 .map(SchoolUnity::computeAverage)
                 .reduce(new Mark(0, 0), Mark::add).finalizeMark(coeff);
+    }
+
+    @Override
+    public void display() {
+        System.out.printf("Year %s (avg: %d/20):\n", name, computeAverage().toInt());
+        for (SchoolUnity schoolUnity : schoolUnities) {
+            schoolUnity.display();
+            System.out.println();
+        }
     }
 
     public static class YearBuilder {

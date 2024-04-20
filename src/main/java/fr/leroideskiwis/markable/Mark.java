@@ -1,6 +1,8 @@
 package fr.leroideskiwis.markable;
 
-public class Mark implements Markable{
+import fr.leroideskiwis.Displayable;
+
+public class Mark implements Markable, Displayable {
 
     private final int mark;
     private final int coeff;
@@ -30,5 +32,10 @@ public class Mark implements Markable{
     @Override
     public Mark computeAverage() {
         return this;
+    }
+
+    @Override
+    public void display() {
+        System.out.printf("\t\t %d coeff %d\n", mark, coeff);
     }
 }

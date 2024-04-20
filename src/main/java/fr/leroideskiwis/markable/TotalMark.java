@@ -1,9 +1,11 @@
 package fr.leroideskiwis.markable;
 
+import fr.leroideskiwis.Displayable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class TotalMark implements Markable {
+public class TotalMark implements Markable, Displayable {
     private final List<Year> years = new ArrayList<>();
 
     @Override
@@ -13,10 +15,15 @@ public class TotalMark implements Markable {
                 .reduce(new Mark(0, 0), Mark::add).finalizeMark(1);
     }
 
+    @Override
+    public void display() {
+        years.forEach(Year::display);
+        System.out.printf("TOTAL AVERAGE: %d/20\n", computeAverage().toInt());
+    }
+
     public static class TotalBuilder {
 
         private final List<Year> schoolUnities = new ArrayList<>();
-        private int coeff;
 
         public TotalBuilder year(Year year) {
             schoolUnities.add(year);
