@@ -1,8 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.Parser;
-import fr.leroideskiwis.SchoolUnity;
-import fr.leroideskiwis.util.Util;
+import fr.leroideskiwis.markable.SchoolUnity;
 
 import java.util.List;
 

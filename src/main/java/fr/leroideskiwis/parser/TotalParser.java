@@ -1,6 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.*;
+import fr.leroideskiwis.markable.TotalMark;
 
 import java.io.File;
 import java.util.Set;

@@ -1,5 +1,6 @@
 package fr.leroideskiwis;
 
+import fr.leroideskiwis.markable.TotalMark;
 import fr.leroideskiwis.parser.TotalParser;
 
 public class SecondMain {

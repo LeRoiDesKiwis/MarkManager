@@ -1,4 +1,4 @@
-package fr.leroideskiwis;
+package fr.leroideskiwis.markable;
 
 import java.util.ArrayList;
 import java.util.List;

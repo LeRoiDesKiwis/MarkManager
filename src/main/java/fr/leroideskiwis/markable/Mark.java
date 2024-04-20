@@ -1,4 +1,4 @@
-package fr.leroideskiwis;
+package fr.leroideskiwis.markable;
 
 public class Mark implements Markable{
 

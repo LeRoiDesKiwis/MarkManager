@@ -1,5 +1,10 @@
 package fr.leroideskiwis;
 
+import fr.leroideskiwis.markable.Mark;
+import fr.leroideskiwis.markable.SchoolUnity;
+import fr.leroideskiwis.markable.TotalMark;
+import fr.leroideskiwis.markable.Year;
+
 import java.util.List;
 
 public class Main {

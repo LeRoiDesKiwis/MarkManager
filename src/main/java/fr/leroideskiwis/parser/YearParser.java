@@ -1,10 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.Mark;
-import fr.leroideskiwis.Markable;
-import fr.leroideskiwis.Parser;
-import fr.leroideskiwis.Year;
-import fr.leroideskiwis.util.Util;
+import fr.leroideskiwis.markable.Year;
 
 import java.io.File;
 import java.io.IOException;

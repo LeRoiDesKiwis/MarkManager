@@ -1,8 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.Mark;
-import fr.leroideskiwis.Markable;
-import fr.leroideskiwis.Parser;
+import fr.leroideskiwis.markable.Mark;
 import fr.leroideskiwis.util.Util;
 
 public class MarkParser implements Parser {
