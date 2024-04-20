@@ -24,7 +24,7 @@ public class SchoolUnity implements Markable, Displayable {
 
     @Override
     public void display() {
-        System.out.printf("\tSchool unity %s (avg: %d/20) COEFF %d\n", name.toUpperCase(), computeAverage().toInt(), coeff);
+        System.out.printf("\tSchool unity %s (avg: %s) COEFF %d\n", name.toUpperCase(), computeAverage(), coeff);
         marks.forEach(Mark::display);
     }
 

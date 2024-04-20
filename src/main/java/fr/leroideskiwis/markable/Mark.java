@@ -7,7 +7,7 @@ public class Mark implements Markable, Displayable {
     private final int mark;
     private final int coeff;
 
-    public Mark(int mark, int coeff) {
+    public Mark(int mark,int coeff){
         this.mark = mark;
         this.coeff = coeff;
     }
@@ -22,7 +22,7 @@ public class Mark implements Markable, Displayable {
 
     @Override
     public String toString() {
-        return String.format("[%d coeff %d]", mark, coeff);
+        return String.format("%.2f/20", mark/100f);
     }
 
     @Override
@@ -32,10 +32,6 @@ public class Mark implements Markable, Displayable {
 
     @Override
     public void display() {
-        System.out.printf("\t\t %d coeff %d\n", mark, coeff);
-    }
-
-    public int toInt() {
-        return mark;
+        System.out.printf("\t\t %s coeff %d\n", this, coeff);
     }
 }

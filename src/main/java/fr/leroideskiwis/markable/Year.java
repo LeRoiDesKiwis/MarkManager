@@ -24,7 +24,7 @@ public class Year implements Markable, Displayable {
 
     @Override
     public void display() {
-        System.out.printf("Year %s (avg: %d/20) COEFF %d:\n", name, computeAverage().toInt(), coeff);
+        System.out.printf("Year %s (avg: %s) COEFF %d:\n", name, computeAverage(), coeff);
         for (SchoolUnity schoolUnity : schoolUnities) {
             schoolUnity.display();
             System.out.println();

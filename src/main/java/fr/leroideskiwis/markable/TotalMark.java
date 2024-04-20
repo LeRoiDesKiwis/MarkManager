@@ -18,7 +18,7 @@ public class TotalMark implements Markable, Displayable {
     @Override
     public void display() {
         years.forEach(Year::display);
-        System.out.printf("TOTAL AVERAGE: %d/20\n", computeAverage().toInt());
+        System.out.printf("TOTAL AVERAGE: %s\n", computeAverage());
     }
 
     public static class TotalBuilder {

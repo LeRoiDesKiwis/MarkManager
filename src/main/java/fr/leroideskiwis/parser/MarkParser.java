@@ -1,7 +1,6 @@
 package fr.leroideskiwis.parser;
 
 import fr.leroideskiwis.markable.Mark;
-import fr.leroideskiwis.util.Util;
 
 public class MarkParser implements Parser {
     private final String line;
@@ -13,10 +12,23 @@ public class MarkParser implements Parser {
     @Override
     public Mark parse() {
         String[] args = line.split(":");
-        return new Mark(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        return new Mark(Integer.parseInt(fixZeroes(args[0])), Integer.parseInt(args[1]));
     }
 
-    public boolean isCorrect() {
-        return Util.isNumber(line.split(":")[0]);
+    private String fixZeroes(String string){
+        if(string.contains(".")){
+            String decimal = string.split("\\.")[1];
+            return (string+"0".repeat(2-decimal.length())).replace(".", "");
+        }
+        return string+"00";
+    }
+
+    public boolean isCorrect(){
+        try{
+            parse();
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
     }
 }
