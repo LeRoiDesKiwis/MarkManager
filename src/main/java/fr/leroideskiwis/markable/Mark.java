@@ -13,15 +13,11 @@ public class Mark implements Markable, Displayable {
     }
 
     public Mark add(Mark a) {
-        Mark mark = new Mark(this.mark + a.mark*a.coeff, this.coeff + a.coeff);
-        System.out.printf("%s+%s = %s \n", this, a, mark);
-        return mark;
+        return new Mark(this.mark + a.mark*a.coeff, this.coeff + a.coeff);
     }
 
     public Mark finalizeMark(int newCoeff) {
-        Mark mark = new Mark(this.mark/coeff, newCoeff);
-        System.out.printf("new mark: %s\n", mark);
-        return mark;
+        return new Mark(this.mark/coeff, newCoeff);
     }
 
     @Override
@@ -37,5 +33,9 @@ public class Mark implements Markable, Displayable {
     @Override
     public void display() {
         System.out.printf("\t\t %d coeff %d\n", mark, coeff);
+    }
+
+    public int toInt() {
+        return mark;
     }
 }
