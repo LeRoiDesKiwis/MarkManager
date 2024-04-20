@@ -32,6 +32,6 @@ public class Mark implements Markable, Displayable {
 
     @Override
     public void display() {
-        System.out.printf("\t\t %s coeff %d\n", this, coeff);
+        System.out.printf("\t\t\t %s coeff %d\n", this, coeff);
     }
 }
