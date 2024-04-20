@@ -1,6 +1,6 @@
 package fr.leroideskiwis;
 
-public interface AverageMark {
+public interface Markable {
 
     Mark computeAverage();
 

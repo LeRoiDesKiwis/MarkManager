@@ -1,6 +1,6 @@
 package fr.leroideskiwis;
 
-public class Mark {
+public class Mark implements Markable{
 
     private final int mark;
     private final int coeff;
@@ -25,5 +25,10 @@ public class Mark {
     @Override
     public String toString() {
         return String.format("[%d coeff %d]", mark, coeff);
+    }
+
+    @Override
+    public Mark computeAverage() {
+        return this;
     }
 }

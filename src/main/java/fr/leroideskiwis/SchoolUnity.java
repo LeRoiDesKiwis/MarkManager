@@ -3,7 +3,7 @@ package fr.leroideskiwis;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolUnity implements AverageMark{
+public class SchoolUnity implements Markable {
 
     private String name;
     private int coeff;
