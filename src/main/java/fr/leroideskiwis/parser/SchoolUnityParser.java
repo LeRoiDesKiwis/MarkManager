@@ -1,6 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.markable.SchoolUnity;
+import fr.leroideskiwis.markable.MarkableImpl;
 
 import java.util.List;
 
@@ -13,8 +13,11 @@ public class SchoolUnityParser implements Parser {
     }
 
     @Override
-    public SchoolUnity parse() {
-        SchoolUnity.SchoolUnityBuilder schoolUnityBuilder = new SchoolUnity.SchoolUnityBuilder().name(lines.get(0)).coeff(Integer.parseInt(lines.get(1)));
+    public MarkableImpl parse() {
+        MarkableImpl.MarkableImplBuilder schoolUnityBuilder = new MarkableImpl.MarkableImplBuilder()
+                .name(lines.get(0))
+                .coeff(Integer.parseInt(lines.get(1)))
+                .tabNumber(2);
         for(String line : lines.subList(2, lines.size())){
             MarkParser markParser = new MarkParser(line);
             if(!markParser.isCorrect()) return schoolUnityBuilder.build();

@@ -1,6 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.markable.TotalMark;
+import fr.leroideskiwis.markable.MarkableImpl;
 
 import java.io.File;
 import java.util.HashMap;
@@ -27,10 +27,10 @@ public class TotalParser implements Parser{
                 .collect(Collectors.toSet());
     }
 
-    public TotalMark parse() {
+    public MarkableImpl parse() {
         separate(getFiles("."));
-        TotalMark.TotalBuilder totalMark = new TotalMark.TotalBuilder();
-        files.forEach((truc, files) -> totalMark.year(new YearParser(files).parse()));
+        MarkableImpl.MarkableImplBuilder totalMark = new MarkableImpl.MarkableImplBuilder().name("TOTAL");
+        files.forEach((truc, files) -> totalMark.mark(new YearParser(files).parse()));
         return totalMark.build();
     }
 

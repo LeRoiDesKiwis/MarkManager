@@ -1,6 +1,6 @@
 package fr.leroideskiwis.parser;
 
-import fr.leroideskiwis.markable.Semester;
+import fr.leroideskiwis.markable.MarkableImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,23 +25,24 @@ public class SemesterParser implements Parser {
     }
 
     @Override
-    public Semester parse() {
+    public MarkableImpl parse() {
         List<String> lines;
         try {
             lines = getLines(file).stream().filter(line -> !line.isBlank()).toList();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Semester.SemesterBuilder semester = new Semester.SemesterBuilder()
+        MarkableImpl.MarkableImplBuilder semester = new MarkableImpl.MarkableImplBuilder()
                 .name(name)
-                .coeff(Integer.parseInt(lines.getFirst()));
+                .coeff(Integer.parseInt(lines.getFirst()))
+                .tabNumber(1);
 
         for (int i = 1; i < lines.size(); i++) {
             String line = lines.get(i);
             MarkParser markParser = new MarkParser(line);
             if(!markParser.isCorrect()) {
                 SchoolUnityParser schoolUnityParser = new SchoolUnityParser(lines.subList(i, lines.size()));
-                semester.schoolUnity(schoolUnityParser.parse());
+                semester.mark(schoolUnityParser.parse());
                 i += schoolUnityParser.getStop();
             }
 
