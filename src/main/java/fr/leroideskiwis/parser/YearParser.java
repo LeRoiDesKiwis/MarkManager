@@ -7,7 +7,7 @@ import java.util.List;
 
 public class YearParser implements Parser{
 
-    private List<File> files;
+    private final List<File> files;
 
     public YearParser(List<File> files){
         this.files = files;

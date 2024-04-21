@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class SemesterParser implements Parser {
     private final File file;
-    private String name;
+    private final String name;
 
     public SemesterParser(File file, String name) {
         this.name = name;

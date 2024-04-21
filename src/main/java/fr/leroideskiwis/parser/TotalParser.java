@@ -14,14 +14,14 @@ import java.util.stream.Stream;
 public class TotalParser implements Parser{
 
     private final String path;
-    private Map<String, List<File>> files = new HashMap<>();
+    private final Map<String, List<File>> files = new HashMap<>();
 
     public TotalParser(String path){
         this.path = path;
     }
 
     public Set<File> getFiles(String dir) {
-        return Stream.of(new File(dir).listFiles())
+        return Stream.of(new File(path).listFiles())
                 .filter(file -> !file.isDirectory())
                 .filter(file -> file.getName().endsWith(".txt"))
                 .collect(Collectors.toSet());

@@ -7,10 +7,10 @@ import java.util.List;
 
 public class MarkableImpl implements Markable, Displayable {
 
-    private String name;
-    private int coeff;
-    private List<Markable> marks;
-    private int tabNumber;
+    private final String name;
+    private final int coeff;
+    private final List<Markable> marks;
+    private final int tabNumber;
 
     public MarkableImpl(String name, int coeff, List<Markable> marks, int tabNumber){
         this.name = name;
@@ -38,7 +38,7 @@ public class MarkableImpl implements Markable, Displayable {
     public static class MarkableImplBuilder{
         private String name;
         private int coeff = 1;
-        private List<Markable> marks = new ArrayList<>();
+        private final List<Markable> marks = new ArrayList<>();
         private int tabNumber;
 
         public MarkableImplBuilder name(String name){
